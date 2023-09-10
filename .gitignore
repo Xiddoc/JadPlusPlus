@@ -1,5 +1,6 @@
 # Project specific stuff
 *.jadx
+*.psd
 
 
 # User-specific stuff
