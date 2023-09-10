@@ -3,6 +3,8 @@ Main file for Jad++
 """
 import argparse
 
+from cmd_handlers.handler_factory import handle_command
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="A tool to add a few extra features to Jadx projects.")
@@ -37,6 +39,10 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     args = parse_args()
 
+    try:
+        handle_command(args)
+    except ValueError as exc:
+        print(f"\nJad++ encountered an error: {exc}")
 
 
 if __name__ == '__main__':
