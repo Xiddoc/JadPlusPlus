@@ -1,10 +1,10 @@
-<img src="https://raw.githubusercontent.com/Xiddoc/JadPlusPlus/master/jadx-gui/src/main/resources/logos/jadx-logo.png" width="64" align="left" />
+<img src="https://raw.githubusercontent.com/Xiddoc/JadPlusPlus/master/static/JadPP.PNG" width="64" align="left" />
 
 # JadPlusPlus
 
 Extensions and helpful add-on tools for Jadx projects.
 
-*(AKA Jad++)*
+*(AKA Jad++ or JadPP)*
 
 ## Features
 
