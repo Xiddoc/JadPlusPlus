@@ -1,7 +1,5 @@
-<img src="https://raw.githubusercontent.com/Xiddoc/JadPlusPlus/master/static/JadPP.PNG" width="64" align="left" />
 
-# JadPlusPlus
-
+# JadPlusPlus <img src="https://raw.githubusercontent.com/Xiddoc/JadPlusPlus/master/static/JadPP.PNG" width="128" align="right" />
 Extensions and helpful add-on tools for Jadx projects.
 
 *(AKA Jad++ or JadPP)*
