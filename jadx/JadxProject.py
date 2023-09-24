@@ -1,17 +1,18 @@
 """
 Holds the data for a JadX project.
 """
-from typing import List
-
+import json
 from dataclasses import dataclass
+from typing import List, Dict, Any
 
 from jadx.OpenTab import OpenTab
 from jadx.ProjectCodeData import ProjectCodeData
+from jadx.ProjectComponent import ProjectComponent
 from jadx.TreeExpansion import TreeExpansion
 
 
 @dataclass
-class JadxProject:
+class JadxProject(ProjectComponent):
     project_version: int
 
     files: List[str]
@@ -24,5 +25,13 @@ class JadxProject:
     enable_live_reload: bool
     search_history: List[str]
 
-    def from_json(self, project_json: str) -> "JadxProject":
+    @classmethod
+    def from_stringified_json(cls, stringified_json: str) -> "ProjectComponent":
+        return cls.from_json(json.loads(stringified_json))
+
+    @staticmethod
+    def from_json(parsed_json: Dict[str, Any]) -> "ProjectComponent":
+        pass
+
+    def to_json(self) -> str:
         pass
