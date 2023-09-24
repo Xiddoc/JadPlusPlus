@@ -1,17 +1,22 @@
 """
 A tree expansion in the source code tree panel.
 """
+import json
 from dataclasses import dataclass
-from typing import Dict, Any
+from typing import List
 
 from jadx.ProjectComponent import ProjectComponent
 
 
 @dataclass
 class TreeExpansion(ProjectComponent):
+    tree: List[str]
+
     @staticmethod
-    def from_json(parsed_json: Dict[str, Any]) -> "TreeExpansion":
-        pass
+    def from_json(parsed_json: List[str]) -> "TreeExpansion":
+        return TreeExpansion(
+            tree=parsed_json
+        )
 
     def to_json(self) -> str:
-        pass
+        return json.dumps(self.tree)
