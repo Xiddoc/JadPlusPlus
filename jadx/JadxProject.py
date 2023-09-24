@@ -25,13 +25,11 @@ class JadxProject(ProjectComponent):
     enable_live_reload: bool
     search_history: List[str]
 
-    @classmethod
-    def from_stringified_json(cls, stringified_json: str) -> "ProjectComponent":
-        return cls.from_json(json.loads(stringified_json))
-
     @staticmethod
     def from_json(parsed_json: Dict[str, Any]) -> "ProjectComponent":
-        pass
+        return JadxProject(
+            project_version=parsed_json["projectVersion"],
+        )
 
     def to_json(self) -> str:
         pass
