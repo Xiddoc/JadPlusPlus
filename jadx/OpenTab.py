@@ -10,7 +10,7 @@ from jadx.ProjectComponent import ProjectComponent
 @dataclass
 class OpenTab(ProjectComponent):
     @staticmethod
-    def from_json(json: Dict[str, Any]) -> "ProjectComponent":
+    def from_json(json: Dict[str, Any]) -> "OpenTab":
         pass
 
     def to_json(self) -> str:

@@ -26,14 +26,14 @@ class JadxProject(ProjectComponent):
     search_history: List[str]
 
     @staticmethod
-    def from_json(parsed_json: Dict[str, Any]) -> "ProjectComponent":
+    def from_json(parsed_json: Dict[str, Any]) -> "JadxProject":
         return JadxProject(
             project_version=parsed_json["projectVersion"],
 
             files=parsed_json["files"],
-            tree_expansions=parsed_json["treeExpansions"],
-            code_data=parsed_json["codeData"],
-            open_tabs=parsed_json["openTabs"],
+            tree_expansions=[TreeExpansion.from_json(tree) for tree in parsed_json["treeExpansions"]],
+            code_data=ProjectCodeData.from_json(parsed_json["codeData"]),
+            open_tabs=[OpenTab.from_json(tab) for tab in parsed_json["openTabs"]],
 
             active_tab=parsed_json["activeTab"],
             cache_dir=parsed_json["cacheDir"],
