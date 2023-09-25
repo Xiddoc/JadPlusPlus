@@ -6,6 +6,8 @@ import json
 from abc import ABCMeta, abstractmethod
 from typing import Dict, Any, List, Union
 
+JSON_INDENTATION = 2
+
 
 class ProjectComponent(metaclass=ABCMeta):
 
@@ -21,7 +23,7 @@ class ProjectComponent(metaclass=ABCMeta):
         """
 
     def to_stringified_json(self) -> str:
-        return json.dumps(self.to_primitives())
+        return json.dumps(self.to_primitives(), indent=JSON_INDENTATION)
 
     @abstractmethod
     def to_primitives(self) -> Union[Dict, List]:

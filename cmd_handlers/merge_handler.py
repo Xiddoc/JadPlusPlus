@@ -16,6 +16,6 @@ def merge_handler(args: argparse.Namespace) -> None:
     projects = [JadxProject.from_stringified_json(file.read())
                 for file in files]
 
-    print(projects)
+    output: TextIO = args.out_project_file
 
-    print(projects[0].to_primitives())
+    output.write(projects[0].to_stringified_json())
