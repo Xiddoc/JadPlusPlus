@@ -42,4 +42,16 @@ class JadxProject(ProjectComponent):
         )
 
     def to_json(self) -> str:
-        pass
+        return json.dumps({
+            "projectVersion": self.project_version,
+
+            "files": self.files,
+            "treeExpansions": [tree.to_json() for tree in self.tree_expansions],
+            "codeData": self.code_data.to_json(),
+            "openTabs": [tab.to_json() for tab in self.open_tabs],
+
+            "activeTab": self.active_tab,
+            "cacheDir": self.cache_dir,
+            "enableLiveReload": self.enable_live_reload,
+            "searchHistory": self.search_history
+        })

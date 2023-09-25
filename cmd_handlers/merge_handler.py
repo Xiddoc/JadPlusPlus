@@ -17,3 +17,5 @@ def merge_handler(args: argparse.Namespace) -> None:
                 for file in files]
 
     print(projects)
+
+    print(projects[0].to_json())
