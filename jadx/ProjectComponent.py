@@ -4,7 +4,7 @@ Includes parsing for loading projects and serialization for saving back to a fil
 """
 import json
 from abc import ABCMeta, abstractmethod
-from typing import Dict, Any
+from typing import Dict, Any, List, Union
 
 
 class ProjectComponent(metaclass=ABCMeta):
@@ -20,8 +20,11 @@ class ProjectComponent(metaclass=ABCMeta):
         Constructs a project component from a JSON object (dictionary).
         """
 
+    def to_stringified_json(self) -> str:
+        return json.dumps(self.to_primitives())
+
     @abstractmethod
-    def to_json(self) -> str:
+    def to_primitives(self) -> Union[Dict, List]:
         """
-        Serializes a project component to a JSON string.
+        Serializes a project component to Python primitives.
         """

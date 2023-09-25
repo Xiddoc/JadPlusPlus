@@ -3,9 +3,8 @@ The JadX project's code data.
 
 This includes most of the relevant project work, such as comments and renames.
 """
-import json
 from dataclasses import dataclass
-from typing import List, Any, Dict
+from typing import List, Any, Dict, Union
 
 from jadx.ProjectComponent import ProjectComponent
 
@@ -22,8 +21,8 @@ class ProjectCodeData(ProjectComponent):
             renames=parsed_json["renames"]
         )
 
-    def to_json(self) -> str:
-        return json.dumps({
+    def to_primitives(self) -> Union[Dict, List]:
+        return {
             "comments": self.comments,
             "renames": self.renames
-        })
+        }

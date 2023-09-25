@@ -18,4 +18,4 @@ def merge_handler(args: argparse.Namespace) -> None:
 
     print(projects)
 
-    print(projects[0].to_json())
+    print(projects[0].to_primitives())

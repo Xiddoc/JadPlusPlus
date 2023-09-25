@@ -1,9 +1,8 @@
 """
 A tree expansion in the source code tree panel.
 """
-import json
 from dataclasses import dataclass
-from typing import Dict, Any
+from typing import Dict, Any, List, Union
 
 from jadx.ProjectComponent import ProjectComponent
 
@@ -20,11 +19,11 @@ class TabViewPosition(ProjectComponent):
             y=parsed_json["y"]
         )
 
-    def to_json(self) -> str:
-        return json.dumps({
+    def to_primitives(self) -> Union[Dict, List]:
+        return {
             "x": self.x,
             "y": self.y,
-        })
+        }
 
 
 @dataclass
@@ -45,11 +44,11 @@ class OpenTab(ProjectComponent):
             view=TabViewPosition.from_json(parsed_json["view"]),
         )
 
-    def to_json(self) -> str:
-        return json.dumps({
+    def to_primitives(self) -> Union[Dict, List]:
+        return {
             "type": self.type,
             "tabPath": self.tab_path,
             "subPath": self.sub_path,
             "caret": self.caret,
-            "view": self.view.to_json()
-        })
+            "view": self.view.to_primitives()
+        }

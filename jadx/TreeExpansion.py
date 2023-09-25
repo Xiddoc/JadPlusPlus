@@ -1,9 +1,8 @@
 """
 A tree expansion in the source code tree panel.
 """
-import json
 from dataclasses import dataclass
-from typing import List
+from typing import List, Union, Dict
 
 from jadx.ProjectComponent import ProjectComponent
 
@@ -18,5 +17,5 @@ class TreeExpansion(ProjectComponent):
             tree=parsed_json
         )
 
-    def to_json(self) -> str:
-        return json.dumps(self.tree)
+    def to_primitives(self) -> Union[Dict, List]:
+        return self.tree
