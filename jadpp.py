@@ -3,7 +3,12 @@ Main file for Jad++
 """
 import argparse
 
-from cmd_handlers.handler_factory import handle_command
+from cmd_handlers.handler_factory import handle_command, get_handler
+
+LOGO = """
+┏┳   ┓  ╻   ╻ 
+ ┃┏┓┏┫ ━╋━ ━╋━
+┗┛┗┻┗┻  ╹   ╹  """
 
 
 def parse_args() -> argparse.Namespace:
@@ -39,11 +44,22 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def print_header_text() -> None:
+    print(LOGO)
+    print("Brought to you @ https://github.com/Xiddoc/JadPlusPlus/\n")
+
+
 def main() -> None:
     args = parse_args()
 
     try:
-        handle_command(args)
+        print_header_text()
+
+        print(f"Processing {args.command} operation...")
+        handler = get_handler(args)
+        handle_command(handler, args)
+        print("Done!")
+
     except ValueError as exc:
         print(f"\nJad++ encountered an error: {exc}")
 
