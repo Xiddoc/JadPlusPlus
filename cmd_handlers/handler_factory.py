@@ -6,7 +6,7 @@ Executes the relevant handler based on the selected command.
 import argparse
 from typing import Callable, Dict
 
-from cmd_handlers import merge_handler
+from cmd_handlers.merge import merge_handler
 
 HandlerFunction = Callable[[argparse.Namespace], None]
 
